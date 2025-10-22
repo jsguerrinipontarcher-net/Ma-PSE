@@ -68,3 +68,40 @@ prevBtn.addEventListener("click", () => {
 
 // Afficher la première carte
 updateCard();
+// === Flashcards avec effet 3D ===
+const flashcards = [
+  { question: "Qu’est-ce que la fréquence cardiaque normale au repos ?", answer: "Entre 60 et 100 battements par minute." },
+  { question: "Quel est le rôle principal des globules rouges ?", answer: "Transporter l’oxygène dans le sang." },
+  { question: "Quelle est la formule de l’IMC ?", answer: "IMC = Poids (kg) / (Taille en mètre)²" },
+  { question: "Que signifie PSE ?", answer: "Prévention Santé Environnement." }
+];
+
+let currentIndex = 0;
+const card = document.getElementById("flashCard");
+const questionEl = document.getElementById("question");
+const answerEl = document.getElementById("answer");
+
+function showCard(index) {
+  const data = flashcards[index];
+  questionEl.textContent = data.question;
+  answerEl.textContent = data.answer;
+  card.classList.remove("is-flipped");
+}
+
+card.addEventListener("click", () => {
+  card.classList.toggle("is-flipped");
+});
+
+document.getElementById("nextCard").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % flashcards.length;
+  showCard(currentIndex);
+});
+
+document.getElementById("prevCard").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
+  showCard(currentIndex);
+});
+
+// Affiche la première carte
+showCard(currentIndex);
+
