@@ -40,6 +40,7 @@ button:hover {
   width: 320px;
   height: 200px;
   margin-top: 2rem;
+  border-radius: 20px;
 }
 
 .card {
@@ -69,10 +70,14 @@ button:hover {
   padding: 20px;
   font-size: 1.1rem;
   text-align: center;
+  border: 2px solid #e2e8f0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .card-front {
   background: #f9fafb;
+  color: #111;
 }
 
 .card-back {
