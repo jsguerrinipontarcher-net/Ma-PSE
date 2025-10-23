@@ -1,3 +1,17 @@
+h1 {
+  color: #0d9488;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
 body {
   font-family: system-ui, sans-serif;
   background: linear-gradient(135deg, #0d9488, #14b8a6);
