@@ -53,7 +53,10 @@ button:hover {
   perspective: 1000px;
   width: 320px;
   height: 200px;
-  margin-top: 2rem;
+  margin: 2rem auto 0 auto; /* ✅ centré horizontalement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
 }
 
@@ -101,9 +104,11 @@ button:hover {
 }
 
 .controls {
-  margin-top: 1rem;
+margin-top: 1.5rem;           /* ✅ un peu plus d’espace */
   display: flex;
-  gap: 1rem;
+  justify-content: center;      /* ✅ centrer les flèches */
+  align-items: center;
+  gap: 1.2rem;                  /* ✅ espace entre les boutons */
 }
 
 .controls button {
@@ -121,5 +126,4 @@ button:hover {
 .controls button:hover {
   background-color: #0b7b73;
 }
-
 
