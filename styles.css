@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
 }
 
-/* === Contenu principal === */
+/* === Conteneur principal === */
 main {
   display: flex;
   flex-direction: column;
@@ -18,14 +18,14 @@ main {
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 400px; /* ✅ limite la largeur du contenu pour rester centré */
+  max-width: 400px;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
 
 /* === Titre et texte === */
 h1 {
-  color: #131414;
+  color: #0d9488;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
@@ -33,35 +33,38 @@ h1 {
 p {
   color: #374151;
   font-size: 1rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0 0 1.5rem 0;
 }
 
-/* === Carte === */
+/* === Carte (Flashcard) === */
 .card-container {
-  perspective: 1000px;
+  perspective: 1200px;
   width: 100%;
   max-width: 320px;
-  height: 200px;
-  margin: 2rem 0 2rem 0; /* ✅ espace avant et après la carte */
+  height: 220px; /* un peu plus haute pour le confort */
+  margin-bottom: 2.5rem; /* ✅ espace net avec les boutons */
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .card {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
   transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
   cursor: pointer;
+  transform-origin: center center; /* ✅ tourne sur l’axe central */
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
 }
 
+/* Faces de la carte */
 .card-face {
   position: absolute;
   width: 100%;
@@ -76,6 +79,8 @@ p {
   font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
+  top: 0;
+  left: 0;
 }
 
 /* Recto */
@@ -93,19 +98,19 @@ p {
 
 /* === Boutons === */
 .controls {
-  margin-top: 2rem;              /* ✅ espace net entre carte et boutons */
+  margin-top: 0; /* géré par .card-container */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  width: 100%;
+  z-index: 0; /* ✅ les boutons restent derrière la carte */
 }
 
 .controls button {
   background-color: #0d9488;
   color: white;
   border: none;
-  padding: 0.7rem 1.4rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
@@ -126,7 +131,8 @@ p {
 /* === Responsive mobile === */
 @media (max-width: 480px) {
   .card-container {
-    height: 180px;
+    max-width: 90%;
+    height: 200px;
   }
 
   h1 {
@@ -135,6 +141,6 @@ p {
 
   .controls button {
     font-size: 0.9rem;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.1rem;
   }
 }
