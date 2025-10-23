@@ -1,63 +1,44 @@
+/* === Mise en page générale === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f0fdfa;
+  color: #111;
+}
+
+/* === Contenu principal === */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* === Titres et textes === */
 h1 {
   color: #131414;
   font-size: 1.8rem;
-  text-align: center;
-  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
-  text-align: center;
-  font-size: 1rem;
   color: #374151;
-  margin-bottom: 1rem;
-}
-
-body {
-  font-family: system-ui, sans-serif;
-  background: linear-gradient(135deg, #0d9488, #14b8a6);
-  color: white;
-  text-align: center;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  background: white;
-  color: #0d9488;
-  border: none;
-  padding: 0.7em 1.2em;
-  border-radius: 1em;
   font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1em;
-  transition: 0.2s;
+  margin-top: 0;
 }
 
-button:hover {
-  background: #e0f2f1;
-}
-#flashcards {
-  margin-top: 2rem;
-}
-
-#card {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-/* --- Flashcards 3D --- */
+/* === Carte (Flashcard) === */
 .card-container {
   perspective: 1000px;
   width: 320px;
   height: 200px;
-  margin: 2rem auto 0 auto; /* ✅ centré horizontalement */
+  margin: 2rem auto 1.5rem auto; /* centré + espace au-dessus et dessous */
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
 }
 
 .card {
@@ -78,52 +59,71 @@ button:hover {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: white;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  font-size: 1.1rem;
-  text-align: center;
-  border: 2px solid #e2e8f0;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
+/* Recto */
 .card-front {
-  background: #f9fafb;
+  background: #ffffff;
   color: #111;
 }
 
+/* Verso */
 .card-back {
   background: #0d9488;
-  color: white;
+  color: #fff;
   transform: rotateY(180deg);
 }
 
+/* === Boutons de navigation === */
 .controls {
-margin-top: 1.5rem;           /* ✅ un peu plus d’espace */
+  margin-top: 2rem;
   display: flex;
-  justify-content: center;      /* ✅ centrer les flèches */
+  justify-content: center;
   align-items: center;
-  gap: 1.2rem;                  /* ✅ espace entre les boutons */
+  gap: 1.5rem;
 }
 
 .controls button {
   background-color: #0d9488;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.1s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .controls button:hover {
   background-color: #0b7b73;
+  transform: scale(1.03);
 }
 
+.controls button:active {
+  transform: scale(0.97);
+}
+
+/* === Responsive (mobile) === */
+@media (max-width: 480px) {
+  .card-container {
+    width: 90%;
+    height: 180px;
+  }
+
+  .controls button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
