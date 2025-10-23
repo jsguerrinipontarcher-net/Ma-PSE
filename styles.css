@@ -1,9 +1,13 @@
-/* === Mise en page générale === */
+/* === Structure générale === */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, sans-serif;
   background: #f0fdfa;
   color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* === Contenu principal === */
@@ -11,13 +15,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 400px; /* ✅ limite la largeur du contenu pour rester centré */
   padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
-/* === Titres et textes === */
+/* === Titre et texte === */
 h1 {
   color: #131414;
   font-size: 1.8rem;
@@ -28,14 +34,16 @@ p {
   color: #374151;
   font-size: 1rem;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-/* === Carte (Flashcard) === */
+/* === Carte === */
 .card-container {
   perspective: 1000px;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   height: 200px;
-  margin: 2rem auto 1.5rem auto; /* centré + espace au-dessus et dessous */
+  margin: 2rem 0 2rem 0; /* ✅ espace avant et après la carte */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +75,6 @@ p {
   padding: 20px;
   font-size: 1.2rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
   text-align: center;
 }
 
@@ -84,13 +91,14 @@ p {
   transform: rotateY(180deg);
 }
 
-/* === Boutons de navigation === */
+/* === Boutons === */
 .controls {
-  margin-top: 2rem;
+  margin-top: 2rem;              /* ✅ espace net entre carte et boutons */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .controls button {
@@ -98,12 +106,12 @@ p {
   color: white;
   border: none;
   padding: 0.7rem 1.4rem;
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s, transform 0.1s;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.1s;
 }
 
 .controls button:hover {
@@ -115,11 +123,14 @@ p {
   transform: scale(0.97);
 }
 
-/* === Responsive (mobile) === */
+/* === Responsive mobile === */
 @media (max-width: 480px) {
   .card-container {
-    width: 90%;
     height: 180px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
   }
 
   .controls button {
